@@ -93,10 +93,7 @@ Demonstrates quantum-safe key establishment and encrypted communication.
 
 **Expected Result:**
 
-Shared secret verification: SUCCESS
-AES key derivation: SUCCESS
-AES encryption and decryption: SUCCESS
-Original and decrypted messages match
+Shared secret successfully established. AES key successfully derived. Message encryption and decryption successful.
 
 ## PERFORMANCE MEASUREMENTS
 
@@ -346,10 +343,7 @@ Demonstrates a quantum-safe smart door lock using ML-DSA-44 digital signatures.
 
 **Expected Result:**
 
-- LOCK command accepted after successful signature verification.
-- UNLOCK command accepted after PIN verification and successful signature verification.
-- Modified commands are rejected during the MITM attack simulation.
-- Door status updated only for authenticated commands.
+LOCK and UNLOCK commands successfully authenticated. Modified commands are rejected. Verification successful.
 
 ## REQUIREMENTS
 
