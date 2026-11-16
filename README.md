@@ -121,7 +121,6 @@ The program records the following measurements:
 
 Run the Python file:
 
-**ML-KEM-768 with AES-256 symmetric encryption**
 ```bash
 python mlkem_aes.py
 ```
@@ -315,7 +314,6 @@ The program records the following measurements:
 
 Run the Python file:
 
-**Classical versus Post-Quantum Cryptography**
 ```bash
 python crypto_comparison_main.py
 ```
@@ -323,3 +321,49 @@ python crypto_comparison_main.py
 ## CONCLUSION
 
 Task 4 compares classical and post-quantum cryptographic mechanisms for key establishment and digital signatures. The experiments record performance, key size, signature size and communication overhead measurements to compare classical cryptography and post-quantum cryptography.
+
+---
+# TASK 5
+
+Task 5 demonstrates the application of ML-DSA-44 (Module-Lattice-Based Digital Signature Algorithm) in a quantum-safe smart door lock system.
+
+The prototype simulates remote access control between a smartphone application and a smart door lock. ML-DSA-44 is used to provide command authentication and message integrity, while PIN authentication provides an additional access-control mechanism for unlock operations.
+
+The prototype also includes a man-in-the-middle (MITM) attack simulation to demonstrate the ability of ML-DSA-44 to detect command tampering.
+
+## 1. `smart_lock.py`
+
+Demonstrates a quantum-safe smart door lock using ML-DSA-44 digital signatures.
+
+1. The smartphone application generates an ML-DSA-44 public-private key pair.
+2. The user selects either a LOCK or UNLOCK operation through the smartphone application.
+3. The smartphone application requires PIN authentication before an UNLOCK command can be processed.
+4. The smartphone application digitally signs LOCK and UNLOCK commands using the ML-DSA private key.
+5. The smart door lock receives the command and verifies the digital signature using the corresponding public key.
+6. The smart door lock executes the command only if signature verification is successful.
+7. An attacker modifies a signed command during the MITM attack simulation.
+8. The smart door lock detects the modified command and rejects it because signature verification fails.
+
+**Expected Result:**
+
+- LOCK command accepted after successful signature verification.
+- UNLOCK command accepted after PIN verification and successful signature verification.
+- Modified commands are rejected during the MITM attack simulation.
+- Door status updated only for authenticated commands.
+
+## REQUIREMENTS
+
+- Python 3.x
+- Cryptography library with ML-DSA support
+
+## HOW TO RUN
+
+Run the Python file:
+
+```bash
+python smart_lock.py
+```
+
+## CONCLUSION
+
+Task 5 demonstrates how ML-DSA-44 can be applied within a smart home environment to provide quantum-safe authentication and message integrity. The prototype successfully verifies authentic commands and rejects tampered commands, demonstrating the potential of post-quantum cryptography for securing future access control systems.
